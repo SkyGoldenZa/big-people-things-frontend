@@ -5,12 +5,12 @@ export const ButtonContainer = styled.div`
   background: ${({ theme }) => theme.colors.card};
 `;
 
-export const StyledButton = styled.div<{isPrimary: boolean}>`
+export const StyledButton = styled.div<{primary: boolean}>`
   background: ${({ theme }) => theme.colors.card};
   border-radius: 8px;
   cursor: pointer;
   padding: 12px 24px;
-  ${props => props.isPrimary ? css`
+  ${props => props.primary ? css`
     background: ${({ theme }) => theme.buttons.primary.bg};
   ` : ''}
   color: ${({ theme }) => theme.buttons.primary.text};

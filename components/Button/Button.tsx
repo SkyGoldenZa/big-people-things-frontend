@@ -4,14 +4,14 @@ import { ButtonContainer, StyledButton } from './styled-components'
 const Button = ({
   children,
   onClick,
-  isPrimary = true,
+  primary = true,
 }: {
   children: ReactNode,
   onClick: MouseEventHandler<HTMLDivElement>,
-  isPrimary: boolean,
+  primary: boolean,
 }) => {
   return (
-    <StyledButton isPrimary={isPrimary} onClick={onClick}>{children}</StyledButton>
+    <StyledButton primary={primary} onClick={onClick}>{children}</StyledButton>
   );
 };
 

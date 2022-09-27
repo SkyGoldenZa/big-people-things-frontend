@@ -11,7 +11,7 @@ const TopNavItems = ({ navItems }: { navItems: NavItems[] }) => {
         console.log('index', index);
         const isPrimary = navItems.length - 1 === index;
         return (
-          <Button primary={isPrimary} onClick={() => navItem.navigate()}>{navItem.name}</Button>
+          <Button key={navItem.name} primary={isPrimary} onClick={() => navItem.navigate()}>{navItem.name}</Button>
         )
       })}
     </TopNavItemsContainer>
