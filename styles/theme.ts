@@ -11,7 +11,7 @@ export const lightTheme = {
   },
   buttons: {
     primary: {
-      color: '#fff',
+      text: '#fff',
       bg: '#07c',
     },
     outline: {

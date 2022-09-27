@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from "next/head";
-import { Layout } from 'components';
+import { Card, Layout } from 'components';
 
 const Signup: NextPage = () => {
   return (
@@ -10,7 +10,7 @@ const Signup: NextPage = () => {
       </Head>
 
       <Layout>
-        SIGNUP
+        <Card>SIGNUP</Card>
       </Layout>
     </>
   )
