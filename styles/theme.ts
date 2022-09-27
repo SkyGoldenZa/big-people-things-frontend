@@ -4,10 +4,10 @@ export const lightTheme = {
   ],
   colors: {
     primary: '#07c',
-    gray: '#f6f6ff',
+    text: '#313134',
     bg: '#f6f6ff',
     card: '#f6f6ff',
-    nav: '#f6f6ff',
+    nav: '#d6d6ff',
   },
   buttons: {
     primary: {
@@ -28,10 +28,10 @@ export const darkTheme = {
   ],
   colors: {
     primary: '#07c',
-    gray: '#f6f6ff',
-    bg: '#f6f6ff',
-    card: '#f6f6ff',
-    nav: '#f6f6ff',
+    text: '#f6f6ff',
+    bg: '#313134',
+    card: '#313134',
+    nav: '#242438',
   },
   buttons: {
     primary: {

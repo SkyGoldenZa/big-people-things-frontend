@@ -1,16 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Layout } from 'components';
+import { Card, Layout } from 'components';
 
 const Login: NextPage = () => {
   return (
     <>
       <Head>
-        <title>adfsdg</title>
+        <title>Login - Big People Things</title>
       </Head>
 
       <Layout>
-
+        <Card>LOGIN</Card>
       </Layout>
     </>
   )

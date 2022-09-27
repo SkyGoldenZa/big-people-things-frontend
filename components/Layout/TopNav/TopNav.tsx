@@ -1,12 +1,12 @@
 import { TopNavItem } from './TopNavItem';
-import { Container } from './styled-components'
+import { TopNavContainer } from './styled-components'
 
 const TopNav = () => {
   return (
-    <Container>
+    <TopNavContainer>
       <div>Logo</div>
       <TopNavItem />
-    </Container>
+    </TopNavContainer>
   );
 };
 

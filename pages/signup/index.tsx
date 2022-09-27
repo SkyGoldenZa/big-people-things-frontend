@@ -1,11 +1,18 @@
 import type { NextPage } from 'next'
-import styles from '../../styles/Home.module.css'
+import Head from "next/head";
+import { Layout } from 'components';
 
 const Signup: NextPage = () => {
   return (
-    <div className={styles.container}>
-      Signup
-    </div>
+    <>
+      <Head>
+        <title>Signup - Big People Things</title>
+      </Head>
+
+      <Layout>
+        SIGNUP
+      </Layout>
+    </>
   )
 }
 

@@ -1,10 +1,12 @@
 import { TopNav } from './TopNav';
+import { LayoutContainer } from './styled-components';
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
-    <div>
+    <LayoutContainer>
       <TopNav />
-    </div>
+      {children}
+    </LayoutContainer>
   );
 };
 
