@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { signupSchema } from 'utils/validation';
@@ -14,6 +13,7 @@ import {
   Layout,
   OuterContainer,
   Title,
+  Head,
 } from 'components';
 
 type SignupType = { email: string; password: string; confirmPassword: string };
@@ -41,9 +41,7 @@ const Signup: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Signup - Big People Things</title>
-      </Head>
+      <Head title="Signup - Big People Things" />
 
       <Layout>
         <OuterContainer>
