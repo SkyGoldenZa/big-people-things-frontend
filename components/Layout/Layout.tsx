@@ -5,7 +5,7 @@ import { LayoutContainer } from './styled-components';
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <LayoutContainer>
-      <TopNav />
+      {/*<TopNav />*/}
       {children}
     </LayoutContainer>
   );

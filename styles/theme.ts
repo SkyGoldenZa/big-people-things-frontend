@@ -3,7 +3,7 @@ export const lightTheme = {
     12, 14, 16, 24, 32, 48, 64
   ],
   colors: {
-    primary: '#07c',
+    primary: '#0077cc',
     text: '#313134',
     bg: '#f6f6ff',
     card: '#f6f6ff',
@@ -11,13 +11,14 @@ export const lightTheme = {
   },
   buttons: {
     primary: {
-      text: '#fff',
-      bg: '#07c',
+      color: '#fff',
+      bg: '#0077cc',
+      disabled: '#0077CC90',
     },
     outline: {
-      color: '#07c',
+      color: '#0077cc',
       bg: 'transparent',
-      boxShadow: 'inset 0 0 0 2px'
+      boxShadow: '0 0 6px 0 #0077cc'
     },
   },
 };
@@ -27,7 +28,7 @@ export const darkTheme = {
     12, 14, 16, 24, 32, 48, 64
   ],
   colors: {
-    primary: '#07c',
+    primary: '#0077cc',
     text: '#f6f6ff',
     bg: '#313134',
     card: '#313134',
@@ -36,10 +37,11 @@ export const darkTheme = {
   buttons: {
     primary: {
       color: '#fff',
-      bg: '#07c',
+      bg: '#0077cc',
+      disabled: '#0077CC90',
     },
     outline: {
-      color: '#07c',
+      color: '#0077cc',
       bg: 'transparent',
       boxShadow: 'inset 0 0 0 2px'
     },
