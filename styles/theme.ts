@@ -8,6 +8,7 @@ export const lightTheme = {
     bg: '#f6f6ff',
     card: '#f6f6ff',
     nav: '#d6d6ff',
+    error: '#CC3200',
   },
   buttons: {
     primary: {

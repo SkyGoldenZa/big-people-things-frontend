@@ -1,34 +1,43 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { signupSchema } from 'utils/validation';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 import {
   Button,
   Card,
+  Form,
   InnerContainer,
   Input,
   Layout,
   OuterContainer,
   Title,
 } from 'components';
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+
+type SignupType = { email: string; password: string; confirmPassword: string };
 
 const Signup: NextPage = () => {
-  const router = useRouter();
-
-  const [inputValues, setInputValues] = useState({
-    username: '',
-    password: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(signupSchema),
   });
 
-  const disabled = !inputValues.username || !inputValues.password;
+  const router = useRouter();
 
-  const submit = () => {
-    if (!inputValues.username || !inputValues.password) return;
+  const onSubmitHandler = ({ email, password, confirmPassword }: SignupType) => {
+    try {
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  function getInputValue({ name, value }: { name: string; value: string }) {
-    setInputValues(prevState => ({ ...prevState, [name]: value }));
-  }
+  console.log('test');
 
   return (
     <>
@@ -40,34 +49,52 @@ const Signup: NextPage = () => {
         <OuterContainer>
           <Card>
             <InnerContainer>
-              <Title>SIGNUP</Title>
+              <Form
+                onSubmit={handleSubmit(
+                  onSubmitHandler as SubmitHandler<FieldValues>
+                )}
+              >
+                <Title>SIGNUP</Title>
 
-              <Input
-                name="username"
-                onChange={getInputValue}
-                placeholder="Username"
-              />
+                <Input
+                  formHook={register('email')}
+                  // onChange={getInputValue}
+                  placeholder="Email"
+                  errorMessage={errors.email?.message as string | undefined}
+                />
 
-              <br />
+                <br />
 
-              <Input
-                name="password"
-                onChange={getInputValue}
-                placeholder="Password"
-                password
-              />
+                <Input
+                  formHook={register('password')}
+                  // onChange={getInputValue}
+                  placeholder="Password"
+                  password
+                  errorMessage={errors.password?.message as string | undefined}
+                />
 
-              <br />
+                <br />
 
-              <Button primary onClick={submit} disabled={disabled}>
-                Submit
-              </Button>
+                <Input
+                  formHook={register('confirmPassword')}
+                  // onChange={getInputValue}
+                  placeholder="Confirm Password"
+                  password
+                  errorMessage={errors.confirmPassword?.message as string | undefined}
+                />
 
-              <br />
+                <br />
 
-              <Button onClick={() => router.push('/login')} outline>
-                Log in
-              </Button>
+                <Button primary type="submit">
+                  Submit
+                </Button>
+
+                <br />
+
+                <Button onClick={() => router.push('/login')} outline>
+                  Log in
+                </Button>
+              </Form>
             </InnerContainer>
           </Card>
         </OuterContainer>

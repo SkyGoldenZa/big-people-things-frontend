@@ -4,6 +4,7 @@ type StyledButtonType = {
   primary: boolean;
   disabled: boolean;
   outline: boolean;
+  type: 'button' | 'submit' | 'reset';
 };
 
 export const ButtonContainer = styled.div`
@@ -11,7 +12,8 @@ export const ButtonContainer = styled.div`
   background: ${({ theme }) => theme.colors.card};
 `;
 
-export const StyledButton = styled.div<StyledButtonType>`
+export const StyledButton = styled.button<StyledButtonType>`
+  border: 0;
   background: ${({ theme }) => theme.colors.card};
   border-radius: 8px;
   cursor: pointer;

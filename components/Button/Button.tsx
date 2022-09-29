@@ -8,21 +8,24 @@ const Button = ({
   style,
   disabled = false,
   outline = false,
+  type = 'button',
 }: {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   primary?: boolean;
   style?: any;
   disabled?: boolean;
   outline?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }) => {
   return (
     <StyledButton
       primary={primary}
-      onClick={() => onClick()}
+      outline={outline}
       style={{ ...style }}
       disabled={disabled}
-      outline={outline}
+      type={type}
+      onClick={() => onClick && onClick()}
     >
       {children}
     </StyledButton>

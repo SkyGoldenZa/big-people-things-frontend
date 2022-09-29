@@ -1,7 +1,10 @@
-import { useState } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { loginSchema } from 'utils/validation';
+
 import {
   Card,
   Layout,
@@ -10,25 +13,35 @@ import {
   Input,
   Button,
   Title,
+  Form,
 } from 'components';
 
-const Login: NextPage = () => {
-  const router = useRouter();
+type LoginType = { email: string; password: string };
 
-  const [inputValues, setInputValues] = useState({
-    username: '',
-    password: '',
+const Login: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(loginSchema),
   });
 
-  const disabled = !inputValues.username || !inputValues.password;
+  const router = useRouter();
 
-  const submit = () => {
-    if (!inputValues.username || !inputValues.password) return;
+  // const disabled = !inputValues.email || !inputValues.password;
+
+  const onSubmitHandler = ({ email, password }: LoginType) => {
+    console.log('email', email);
+    console.log('password', password);
+    try {
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const getInputValue = ({ name, value }: { name: string; value: string }) => {
-    setInputValues(prevState => ({ ...prevState, [name]: value }));
-  };
+  console.log('errors', errors);
 
   return (
     <>
@@ -40,34 +53,42 @@ const Login: NextPage = () => {
         <OuterContainer>
           <Card>
             <InnerContainer>
-              <Title>LOGIN</Title>
+              <Form
+                onSubmit={handleSubmit(
+                  onSubmitHandler as SubmitHandler<FieldValues>
+                )}
+              >
+                <Title>LOGIN</Title>
 
-              <Input
-                name="username"
-                onChange={getInputValue}
-                placeholder="Username"
-              />
+                <Input
+                  formHook={register('email')}
+                  // onChange={getInputValue}
+                  placeholder="Email"
+                  errorMessage={errors.email?.message as string | undefined}
+                />
 
-              <br />
+                <br />
 
-              <Input
-                name="password"
-                onChange={getInputValue}
-                placeholder="Password"
-                password
-              />
+                <Input
+                  formHook={register('password')}
+                  // onChange={getInputValue}
+                  placeholder="Password"
+                  password
+                  errorMessage={errors.password?.message as string | undefined}
+                />
 
-              <br />
+                <br />
 
-              <Button primary onClick={submit} disabled={disabled}>
-                Submit
-              </Button>
+                <Button primary type="submit">
+                  Submit
+                </Button>
 
-              <br />
+                <br />
 
-              <Button onClick={() => router.push('/signup')} outline>
-                Creat Account
-              </Button>
+                <Button onClick={() => router.push('/signup')} outline>
+                  Create Account
+                </Button>
+              </Form>
             </InnerContainer>
           </Card>
         </OuterContainer>

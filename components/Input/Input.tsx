@@ -1,28 +1,41 @@
 import { ChangeEvent } from 'react';
-import { StyledInput } from './styled-components';
+import {
+  StyledInput,
+  StyledInputContainer,
+  StyledErrorText,
+} from './styled-components';
 
 const Input = ({
-  name,
   onChange,
   style,
   placeholder,
   password = false,
+  formHook,
+  errorMessage,
 }: {
-  name: string;
-  onChange: any;
+  onChange?: any;
   style?: any;
   placeholder?: string;
   password?: boolean;
+  formHook?: any;
+  errorMessage?: string | undefined;
 }) => {
+  const formHookData = formHook || '';
   return (
-    <StyledInput
-      style={{ ...style }}
-      placeholder={placeholder}
-      type={password ? 'password' : 'text'}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => {
-        onChange({ name, value: e.target.value });
-      }}
-    />
+    <StyledInputContainer>
+      <StyledInput
+        {...formHookData}
+        style={{ ...style }}
+        placeholder={placeholder}
+        type={password ? 'password' : 'text'}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          onChange?.(e.target.value);
+        }}
+      />
+      <StyledErrorText errorMessage={errorMessage}>
+        {errorMessage}
+      </StyledErrorText>
+    </StyledInputContainer>
   );
 };
 
