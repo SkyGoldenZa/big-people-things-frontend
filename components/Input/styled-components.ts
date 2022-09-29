@@ -1,10 +1,4 @@
-import styled, { css } from 'styled-components';
-
-// export const StyledInputContainer = styled.div`
-//   border-radius: 8px;
-//   background: ${({ theme }) => theme.colors.card};
-//   width: 100%;
-// `;
+import styled from 'styled-components';
 
 export const StyledInput = styled.input`
   background: ${({ theme }) => theme.colors.card};

@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { StyledInputContainer, StyledInput } from './styled-components';
+import { StyledInput } from './styled-components';
 
 const Input = ({
   name,
