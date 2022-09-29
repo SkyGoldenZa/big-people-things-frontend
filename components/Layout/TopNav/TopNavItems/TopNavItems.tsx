@@ -10,9 +10,18 @@ const TopNavItems = ({ navItems }: { navItems: NavItems[] }) => {
         console.log('navItem', navItem);
         console.log('index', index);
         const isPrimary = navItems.length - 1 === index;
+        const leftMargin = navItems.length !== 0;
+
         return (
-          <Button key={navItem.name} primary={isPrimary} onClick={() => navItem.navigate()}>{navItem.name}</Button>
-        )
+          <Button
+            key={navItem.name}
+            primary={isPrimary}
+            style={{ marginLeft: leftMargin && '24px' }}
+            onClick={() => navItem.navigate()}
+          >
+            {navItem.name}
+          </Button>
+        );
       })}
     </TopNavItemsContainer>
   );
