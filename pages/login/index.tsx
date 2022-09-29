@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,6 +13,7 @@ import {
   Button,
   Title,
   Form,
+  Head,
 } from 'components';
 
 type LoginType = { email: string; password: string };
@@ -45,9 +45,7 @@ const Login: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Login - Big People Things</title>
-      </Head>
+      <Head title="Login - Big People Things" />
 
       <Layout>
         <OuterContainer>

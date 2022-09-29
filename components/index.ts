@@ -6,3 +6,4 @@ export * from './Input';
 export * from './OuterContainer';
 export * from './Title';
 export * from './Form';
+export * from './Head';
