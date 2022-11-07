@@ -7,8 +7,6 @@ const TopNavItems = ({ navItems }: { navItems: NavItems[] }) => {
   return (
     <TopNavItemsContainer>
       {navItems.map((navItem: NavItems, index: number) => {
-        console.log('navItem', navItem);
-        console.log('index', index);
         const isPrimary = navItems.length - 1 === index;
         const leftMargin = navItems.length !== 0;
 

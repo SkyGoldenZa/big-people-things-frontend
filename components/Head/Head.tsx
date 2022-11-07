@@ -1,9 +1,10 @@
+import { ReactNode } from 'react';
 import HTMLHead from 'next/head';
 
-const Head = ({ title }: { title: string; }) => {
+const Head = ({ children }: { children: ReactNode }) => {
   return (
     <HTMLHead>
-      <title>{title}</title>
+      {children}
       {/*MS, fb & Whatsapp*/}
 
       {/*MS Tile - for Microsoft apps*/}

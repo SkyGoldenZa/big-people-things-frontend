@@ -13,11 +13,14 @@ export const StyledInputContainer = styled.div`
 
 export const StyledInput = styled.input`
   background: ${({ theme }) => theme.colors.card};
+  color: ${({ theme }) => theme.colors.text};
   border-radius: 8px;
   cursor: pointer;
   padding: 12px 24px;
   width: 100%;
   border: 1px ${props => props.theme.colors.primary} solid;
+
+  transition: all 0.2s ease-in-out;
 `;
 
 export const StyledErrorText = styled.span<ErrorType>`

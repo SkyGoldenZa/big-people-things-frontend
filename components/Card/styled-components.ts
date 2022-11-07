@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.card};
   box-shadow: 0 0 12px ${({ theme }) => theme.colors.card};
-  
   justify-content: stretch;
+
+  transition: all 0.2s ease-in-out;
 `;
