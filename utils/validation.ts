@@ -35,6 +35,9 @@ export const signupSchema = yup.object().shape({
 });
 
 export const loginSchema = yup.object().shape({
-  email: yup.string().required(),
+  email: yup
+    .string()
+    .email('Must be a valid email')
+    .required(),
   password: yup.string().required(),
 });

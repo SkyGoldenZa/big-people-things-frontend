@@ -5,5 +5,6 @@ export const StyledOuterContainer = styled.div`
   flex: 1 1 0;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  max-width: 768px;
+  width: 100%;
 `;
